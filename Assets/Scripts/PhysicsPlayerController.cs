@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(CharacterController), typeof(AudioSource))]
 public class PhysicsPlayerController : MonoBehaviour
 {
     public GameObject gameOver;
@@ -14,6 +15,8 @@ public class PhysicsPlayerController : MonoBehaviour
     private int score = 0;
     private bool isDisabled = false;
 
+    private AudioSource source;
+
     private CharacterController controller;
     private Vector3 moveDirection = Vector3.zero;
 
@@ -21,6 +24,7 @@ public class PhysicsPlayerController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        source = GetComponent<AudioSource>();
     }
 
     #region Movement
@@ -46,7 +50,10 @@ public class PhysicsPlayerController : MonoBehaviour
                 moveDirection = direction;
                 moveDirection *= speed;
                 if (Input.GetButton("Jump"))
+                {
                     moveDirection.y = jumpSpeed;
+                    source.Play();
+                }
 
                 if (direction != Vector3.zero)
                 {
