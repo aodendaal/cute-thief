@@ -23,19 +23,16 @@ public class PhysicsPlayerController : MonoBehaviour
         controller = GetComponent<CharacterController>();
     }
 
-    private void Update()
+    #region Movement
+
+    // Update is called once per frame
+    void Update()
     {
         if (transform.position.y < -1f)
         {
             GameOver();
         }
-    }
 
-    #region Movement
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
         if (!isDisabled)
         {
             if (controller.isGrounded)
