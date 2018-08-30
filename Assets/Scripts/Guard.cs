@@ -8,6 +8,8 @@ public class Guard : MonoBehaviour
 
     private float speed = 2f;
 
+    private bool isDisabled = false;
+
     private void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -15,21 +17,24 @@ public class Guard : MonoBehaviour
 
     private void FixedUpdate()
     {
-        var move = Vector3.zero;
-
-        if (targetMarker != null)
+        if (!isDisabled)
         {
-            var heading = targetMarker.transform.position - transform.position;
-            heading.Normalize();
+            var move = Vector3.zero;
 
-            var rotation = new Vector3(heading.x, 0f, heading.z);
+            if (targetMarker != null)
+            {
+                var heading = targetMarker.transform.position - transform.position;
+                heading.Normalize();
 
-            transform.rotation = Quaternion.LookRotation(rotation);
+                var rotation = new Vector3(heading.x, 0f, heading.z);
 
-            move += heading * speed;
+                transform.rotation = Quaternion.LookRotation(rotation);
+
+                move += heading * speed;
+            }
+
+            controller.SimpleMove(move);
         }
-
-        controller.SimpleMove(move);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -40,5 +45,10 @@ public class Guard : MonoBehaviour
 
             targetMarker = marker.nextMarker;
         }
+    }
+
+    public void Disable()
+    {
+        isDisabled = true;
     }
 }

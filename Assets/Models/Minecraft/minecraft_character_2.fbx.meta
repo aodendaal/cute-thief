@@ -4,19 +4,25 @@ ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
     100000: Body
-    100002: Head
-    100004: Left.Arm
-    100006: Left.Leg
-    100008: //RootNode
-    100010: Right.Arm
-    100012: Right.Leg
+    100002: Bone
+    100004: Bone_end
+    100006: Head
+    100008: Left.Arm
+    100010: Left.Leg
+    100012: //RootNode
+    100014: Right.Arm
+    100016: Right.Leg
+    100018: root
     400000: Body
-    400002: Head
-    400004: Left.Arm
-    400006: Left.Leg
-    400008: //RootNode
-    400010: Right.Arm
-    400012: Right.Leg
+    400002: Bone
+    400004: Bone_end
+    400006: Head
+    400008: Left.Arm
+    400010: Left.Leg
+    400012: //RootNode
+    400014: Right.Arm
+    400016: Right.Leg
+    400018: root
     2100000: Material
     2300000: Body
     2300002: Head

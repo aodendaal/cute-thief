@@ -15,7 +15,7 @@ public class Exit : MonoBehaviour
 
         if (other.tag == "Player")
         {
-            other.gameObject.GetComponent<PlayerControllerAdv>().Disable();
+            other.gameObject.GetComponent<PhysicsPlayerController>().Disable();
 
             levelCompletePanel.SetActive(true);
 
