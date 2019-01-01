@@ -4,6 +4,7 @@
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
 [Bb]uildWeb/
+[Bb]uild.app/
 [Ll]ibrary/
 [Ll]ocal[Cc]ache/
 [Oo]bj/
@@ -41,3 +42,5 @@ sysinfo.txt
 Icon?
 ehthumbs.db
 Thumbs.db
+
+*.zip

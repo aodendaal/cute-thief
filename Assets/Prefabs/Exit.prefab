@@ -37,7 +37,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1771058382098882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.25, z: 0}
+  m_LocalPosition: {x: 15, y: 5.25, z: 1}
   m_LocalScale: {x: 2, y: 0.5, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
@@ -108,7 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7ceb81f41955794698601f5ef065a41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelCompletePanel: {fileID: 1641781135418714, guid: 629ce2ae2bf620a4e97e5b969622adbb,
-    type: 2}
-  totalTreasures: 0
-  nextLevel: 
+  levelCompletePanel: {fileID: 0}
+  totalTreasures: 9
+  nextLevel: Level02

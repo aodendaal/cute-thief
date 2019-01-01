@@ -21,8 +21,7 @@ public class Gold : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            var player = GameObject.FindObjectOfType<PhysicsPlayerController>();
-            player.AddScore(100);
+            ScoreController.instance.AddScore(100);
 
             var sound = Instantiate(soundPrefab, transform.position, Quaternion.identity);
             Destroy(sound, 1f);

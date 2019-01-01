@@ -6,13 +6,11 @@ using UnityEngine.UI;
 [RequireComponent(typeof(CharacterController), typeof(AudioSource))]
 public class PhysicsPlayerController : MonoBehaviour
 {
-    public GameObject gameOver;
 
     private float speed = 6.0f;
     private float jumpSpeed = 8.0f;
     private float gravity = 20.0f;
 
-    private int score = 0;
     private bool isDisabled = false;
 
     private AudioSource source;
@@ -34,7 +32,7 @@ public class PhysicsPlayerController : MonoBehaviour
     {
         if (transform.position.y < -1f)
         {
-            GameOver();
+            GameController.instance.PlayerDies();
         }
 
         if (!isDisabled)
@@ -68,33 +66,9 @@ public class PhysicsPlayerController : MonoBehaviour
 
     #endregion
 
-    public void AddScore(int points)
-    {
-        score += points;
-
-        var scoreGameObject = GameObject.Find("Score");
-        var scoreText = scoreGameObject.GetComponent<Text>();
-        scoreText.text = "Score: " + score.ToString();
-    }
-
-    public void GameOver()
-    {
-        Disable();
-
-        gameOver.SetActive(true);
-
-        StartCoroutine(ReloadScene());
-    }
-
     public void Disable()
     {
         isDisabled = true;
     }
 
-    private IEnumerator ReloadScene()
-    {
-        yield return new WaitForSeconds(1f);
-
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
 }
